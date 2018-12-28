@@ -4,13 +4,11 @@ import java.util.Random;
 
 public class Sensor
 {
-    public void register(Door door)
+    public void register(proximity prox)
     {
-        while (true) 
-		{
-            if (isPersonClose()) 
-			{
-                door.proximityCallback();
+        while (true) {
+            if (isPersonClose()) {
+                prox.proximityCallback();
                 break;
             }
         }

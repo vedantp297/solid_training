@@ -17,16 +17,18 @@ public class EncodingModule
         BufferedReader reader = null;
         BufferedWriter writer = null;
         try {
-            reader = new BufferedReader(
-                new FileReader("DIP/src/com/meditab/training/dip/exercise/beforeEncryption.txt"));
-            writer = new BufferedWriter(
-                new FileWriter("DIP/src/com/meditab/training/dip/exercise/afterEncryption.txt"));
+            reader = new BufferedReader(new FileReader("DIP/src/com/meditab/training/dip/exercise/beforeEncryption.txt"));
+            writer = new BufferedWriter(new FileWriter("DIP/src/com/meditab/training/dip/exercise/afterEncryption.txt"));
             String aLine;
-            while ((aLine = reader.readLine()) != null) {
+            
+            while ((aLine = reader.readLine()) != null) 
+            {
                 String encodedLine = Base64.getEncoder().encodeToString(aLine.getBytes());
                 writer.append(encodedLine);
             }
-        } finally {
+        } 
+        
+        finally {
             if (writer != null) {
                 writer.close();
             }
@@ -46,10 +48,13 @@ public class EncodingModule
         StringBuilder inputString1 = new StringBuilder();
         int c;
         c = reader.read();
-        while (c != -1) {
+        
+        while (c != -1) 
+        {
             inputString1.append((char) c);
             c = reader.read();
         }
+        
         String inputString = inputString1.toString();
         String encodedString = Base64.getEncoder().encodeToString(inputString.getBytes());
         MyDatabase database = new MyDatabase();
