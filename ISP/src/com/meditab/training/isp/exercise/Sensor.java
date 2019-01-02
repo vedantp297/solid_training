@@ -6,10 +6,8 @@ public class Sensor
 {
     public void register(Door door)
     {
-        while (true) 
-		{
-            if (isPersonClose()) 
-			{
+        while (true) {
+            if (isPersonClose()) {
                 door.proximityCallback();
                 break;
             }
